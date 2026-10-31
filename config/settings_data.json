@@ -1,0 +1,18 @@
+{
+    "current":{
+        "max_width" : 1200,
+        "page_padding" : 20,
+        "page_padding_desk" : 20,
+        "font_picker_body" : "inter_n4",
+        "font_picker_heading" : "poppins_n7"
+    },
+    "presets":{
+        "Default":{
+            "max_width" : 1200,
+            "page_padding" : 20,
+            "page_padding_desk" : 20,
+            "font_picker_body" : "inter_n4",
+            "font_picker_heading" : "poppins_n7"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{% style %}
+  {{ settings.font_picker_body | font_face: font-display: "swap" }}
+  {{ settings.font_picker_heading | font_face: font-display: "swap" }}
+   root:{
+     --page-width: {{ settings.max_width | divided_by: 16.0 }}rem;
+     --page-padding-mobile: {{ settings.page_padding }}px;
+     --page-padding-desktop: {{ settings.page_padding_desk }}px;
+     --body-font: {{ settings.font_picker_body.family }} , {{  settings.font_picker_body.fallback_families }};
+     --body-font-weight: {{ settings.font_picker_body.weight }};
+     --body-font-style: {{ settings.font_picker_body.style }};
+     --heading-font: {{ settings.font_picker_heading.family }} , {{  settings.font_picker_heading.fallback_families }};
+     --heading-font-weight: {{ settings.font_picker_heading.weight }};
+     --heading-font-style: {{ settings.font_picker_heading.style }};
+   }
+{% endstyle %}
