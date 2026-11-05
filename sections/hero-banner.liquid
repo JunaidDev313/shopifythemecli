@@ -1,0 +1,26 @@
+<div class="{% if section.settings.full_width %}container-full {% else %}container{% endif %}">
+     <h2 class="hero-banner-heading">this is heading2</h2>
+     some text for hero banner section
+</div>
+
+
+{% schema %}
+
+{
+"name": "hero-banner",
+"settings":[
+    {
+    "type": "checkbox",
+    "id": "full_width",
+    "label": "Full Width",
+    "default": false
+    }
+],
+"presets": [
+  {
+    "name": "Hero Banner",
+  }
+]
+}
+
+{% endschema %}

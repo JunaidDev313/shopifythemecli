@@ -18,7 +18,7 @@
             },
             {
                 "type": "range",
-                "id" : "page_padding",
+                "id": "page_padding",
                 "label": "Page Padding Mobile",
                 "default": 20,
                 "min": 0,
@@ -26,9 +26,9 @@
                 "step": 2,
                 "unit": "px"
             },
-             {
+            {
                 "type": "range",
-                "id" : "page_padding_desk",
+                "id": "page_padding_desk",
                 "label": "Page Padding Desktop",
                 "default": 20,
                 "min": 0,
@@ -39,7 +39,7 @@
         ]
     },
     {
-        "name" : "Typography",
+        "name": "Typography",
         "settings": [
             {
                 "type": "font_picker",
@@ -52,6 +52,46 @@
                 "id": "font_picker_heading",
                 "label": "Select Headings Font Family",
                 "default": "poppins_n7"
+            },
+            {
+                "type": "range",
+                "id": "font_picker_size_desktop_body",
+                "label": "Font Size Desktop Body",
+                "default": 16,
+                "min": 12,
+                "max": 100,
+                "step": 1,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "font_picker_size_desktop_heading",
+                "label": "Font Size Desktop Headings",
+                "default": 16,
+                "min": 12,
+                "max": 100,
+                "step": 1,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "font_picker_size_mobile_body",
+                "label": "Font Size Mobile Body",
+                "default": 16,
+                "min": 12,
+                "max": 100,
+                "step": 1,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "font_picker_size_mobile_heading",
+                "label": "Font Size Mobile Headings",
+                "default": 16,
+                "min": 12,
+                "max": 100,
+                "step": 1,
+                "unit": "px"
             }
         ]
     }

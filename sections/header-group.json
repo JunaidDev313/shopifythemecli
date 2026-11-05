@@ -8,18 +8,8 @@
  * ------------------------------------------------------------
  */
 {
-    "name": "Header Group",
-    "type": "header",
-    "sections": {
-        "announcement-bar":{
-            "type": "annoucement-bar",
-            "settings": {}
-        },
-        "main": {
-            "type": "header",
-            "settings": {}
-        }
-    },
-
-    "order": ["announcement-bar", "main"]
+  "name": "Header Group",
+  "type": "header",
+  "sections": {},
+  "order": []
 }

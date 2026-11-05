@@ -1,0 +1,35 @@
+{% doc %}
+ icon using licuid dev icon snippet. This snippet allows you to render different icons based on the provided parameters.
+  @param {string} icon_name - The name of the icon to render. Possible values: chivron_down, chivron_up, chivron_left, chivron_right
+  @param {number} [icon_size] - The size of the icon in pixels. Default is 24.
+  @param {number} [icon_stroke_width] - The stroke width of the icon. Default is 2.
+  @param {string} [extra_classes] - Extra CSS classes to apply to the icon. Default is none.
+
+  @example
+  {% render 'icons', icon_name: 'chivron-down', icon_size: 28, icon_stroke_width: 1.5, extra_classes: 'my-icon' %}
+{% enddoc %}
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="{{ icon_size | default: 24 }}"
+  height="{{ icon_size | default: 24 }}"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="{{ icon_stroke_width | default: 2 }}"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="icon-{{ icon_name | escape }} {% if extra_classes %} {{ extra_classes | escape }}{% endif %}"
+>
+  {% case icon_name %}
+    {% when 'chivron-down' %}
+       <path d="m6 9 6 6 6-6"/>
+    {% when 'chivron-up' %}
+       <path d="m18 15-6-6-6 6"/>
+    {% when 'chivron-left' %}
+       <path d="m9 6 6 6-6 6"/>
+    {% when 'chivron-right' %}
+       <path d="m15 6-6 6 6 6"/>
+
+  {% endcase %}
+</svg>

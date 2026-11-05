@@ -1,1 +1,27 @@
-<p>This is an announcement bar</p>
+<div class="{% if section.settings.full_width %}container-full {% else %}container{% endif %}"
+  style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};">
+  <div class="announcement-bar__content">
+    <div class="announcement-bar__text">
+      {{ section.settings.announcement_text }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make full width",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement Text"
+    }
+  ]
+}
+{% endschema %}

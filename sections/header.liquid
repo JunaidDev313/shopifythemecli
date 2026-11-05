@@ -1,14 +1,85 @@
+<div class="header">
+  <div class="header__content">
+    <div class="header__logo">
+      <a href="{{ shop.url }}">
+        <img src="{{ section.settings.logo | img_url: "master" }}" alt="{{ shop.name }}">
+      </a>
+    </div>
+    <nav class="header__nav">
+      <ul class="menu flex-wrap">
+        {% for link in section.settings.menu.links %}
+          {% if link.links != blank %}
+            <details class="dropdown-list">
+              <summary>{{ link.title | link_to: link.url }}
+                {% render 'icons', icon_name: 'chivron-down', icon_size: 28, icon_stroke_width: 1.5 %}
+              </summary>
+              <ul class="sub-menu">
+                {% for child in link.links %}
+                  {% if child.links != blank %}
+                    <details class="dropdown-list dropdown-list-nested">
+                      <summary>{{ child.title | link_to: child.url }}</summary>
+                      <ul class="sub-menu flyout-menu">
+                        {% for grandchild in child.links %}
+                          <li>
+                            {{ grandchild.title | link_to: grandchild.url }}
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </details>
+                  {% else %}
+                    <li>
+                      {{ child.title | link_to: child.url }}
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </details>
+          {% else %}
+            <li>
+              {{ link.title | link_to: link.url }}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const dropdowns = document.querySelectorAll('.header__nav details.dropdown-list');
 
-{% schema %}
-  {
-    "name": "Header",
-    "settings": [],
-    "presets": [
-      {
-        "name": "Header",
-        "category": "Header"
-      }
-    ]
-  }
-{% endschema %}
+      dropdowns.forEach(function (dropdown) {
+        dropdown.addEventListener('mouseenter', function () {
+          dropdown.setAttribute('open', '');
+        });
+
+        dropdown.addEventListener('mouseleave', function () {
+          dropdown.removeAttribute('open');
+        });
+      });
+    });
+  </script>
+
+  {% schema %}
+{
+  "name": "Header",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Select Menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+  {% endschema %}

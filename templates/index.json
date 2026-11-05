@@ -9,14 +9,25 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "header",
-      "settings": {}
-    },
-    "hero-banner": {
+    "hero_banner_DDMdkf": {
       "type": "hero-banner",
-      "settings": {}
+      "disabled": true,
+      "name": "Hero Banner",
+      "settings": {
+        "full_width": false
+      }
     },
+    "header_Fp6UCz": {
+      "type": "header",
+      "name": "Header",
+      "settings": {
+        "logo": "shopify://shop_images/logo_aee6a15c-bbb6-4297-8325-750365985cdc.png",
+        "menu": "main-menu"
+      }
+    }
   },
-  "order": ["main", "hero-banner"]
+  "order": [
+    "hero_banner_DDMdkf",
+    "header_Fp6UCz"
+  ]
 }
