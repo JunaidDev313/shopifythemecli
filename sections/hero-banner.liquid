@@ -1,24 +1,37 @@
 <div class="{% if section.settings.full_width %}container-full {% else %}container{% endif %}">
-     <h2 class="hero-banner-heading">this is heading2</h2>
-     some text for hero banner section
+     <h2 class="hero-banner-heading">{{ 'general.hero_banner_heading' | t }}</h2>
+     <p class="hero-banner-subheading">{{ 'general.hero_banner_subheading' | t }}</p>
 </div>
 
 
 {% schema %}
 
 {
-"name": "hero-banner",
+"name": "t:sections.section_name.hero_banner",
+"tag": "section",
 "settings":[
     {
     "type": "checkbox",
     "id": "full_width",
     "label": "Full Width",
     "default": false
-    }
+    },
+    {
+    "type": "text",
+    "id": "heading",
+    "label": "t:sections.general.hero_banner_heading",
+    "default": "Hero Banner Heading content"
+    },
+    {
+    "type": "text",
+    "id": "subheading",
+    "label": "t:sections.general.hero_banner_subheading",
+    "default": "Hero Banner Subheading content"
+    },
 ],
 "presets": [
   {
-    "name": "Hero Banner",
+    "name": "t:sections.section_name.hero_banner",
   }
 ]
 }

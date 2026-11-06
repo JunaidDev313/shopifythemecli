@@ -20,7 +20,7 @@
     "font_picker_size_mobile_heading": 29,
     "content_for_index": []
   },
-  "presets": {
+  "presets": { 
     "Default": {
       "max_width": 1200,
       "page_padding": 20,

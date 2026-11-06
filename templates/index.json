@@ -14,7 +14,9 @@
       "disabled": true,
       "name": "Hero Banner",
       "settings": {
-        "full_width": false
+        "full_width": false,
+        "heading": "Hero Banner Heading",
+        "subheading": "Hero Banner Subheading"
       }
     },
     "header_Fp6UCz": {
@@ -24,10 +26,20 @@
         "logo": "shopify://shop_images/logo_aee6a15c-bbb6-4297-8325-750365985cdc.png",
         "menu": "main-menu"
       }
+    },
+    "hero_banner_qLyeGP": {
+      "type": "hero-banner",
+      "name": "t:sections.section_name.hero_banner",
+      "settings": {
+        "full_width": false,
+        "heading": "Hero Banner Heading content",
+        "subheading": "Hero Banner Subheading content"
+      }
     }
   },
   "order": [
     "hero_banner_DDMdkf",
-    "header_Fp6UCz"
+    "header_Fp6UCz",
+    "hero_banner_qLyeGP"
   ]
 }

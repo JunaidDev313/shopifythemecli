@@ -2,7 +2,7 @@
   <div class="header__content">
     <div class="header__logo">
       <a href="{{ shop.url }}">
-        <img src="{{ section.settings.logo | img_url: "master" }}" alt="{{ shop.name }}">
+        <img src="{{ section.settings.logo | img_url: "master" }}" alt="{{ shop.name }}"/>
       </a>
     </div>
     <nav class="header__nav">
@@ -10,14 +10,28 @@
         {% for link in section.settings.menu.links %}
           {% if link.links != blank %}
             <details class="dropdown-list">
-              <summary>{{ link.title | link_to: link.url }}
-                {% render 'icons', icon_name: 'chivron-down', icon_size: 28, icon_stroke_width: 1.5 %}
+              <summary>
+                {{ link.title | link_to: link.url }}
+                {% render 'icons',
+                  icon_name: 'chivron-down',
+                  icon_size: 20,
+                  icon_stroke_width: 1.5,
+                  extra_classes: 'my-icon'
+                %}
               </summary>
               <ul class="sub-menu">
                 {% for child in link.links %}
                   {% if child.links != blank %}
                     <details class="dropdown-list dropdown-list-nested">
-                      <summary>{{ child.title | link_to: child.url }}</summary>
+                      <summary>
+                        {{ child.title | link_to: child.url }}
+                        {% render 'icons',
+                          icon_name: 'chivron-left',
+                          icon_size: 20,
+                          icon_stroke_width: 1.5,
+                          extra_classes: 'my-icon'
+                        %}
+                      </summary>
                       <ul class="sub-menu flyout-menu">
                         {% for grandchild in child.links %}
                           <li>
@@ -43,24 +57,24 @@
       </ul>
     </nav>
   </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdowns = document.querySelectorAll('.header__nav details.dropdown-list');
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const dropdowns = document.querySelectorAll('.header__nav details.dropdown-list');
+    dropdowns.forEach(function (dropdown) {
+      dropdown.addEventListener('mouseenter', function () {
+        dropdown.setAttribute('open', '');
+      });
 
-      dropdowns.forEach(function (dropdown) {
-        dropdown.addEventListener('mouseenter', function () {
-          dropdown.setAttribute('open', '');
-        });
-
-        dropdown.addEventListener('mouseleave', function () {
-          dropdown.removeAttribute('open');
-        });
+      dropdown.addEventListener('mouseleave', function () {
+        dropdown.removeAttribute('open');
       });
     });
-  </script>
+  });
+</script>
 
-  {% schema %}
+{% schema %}
 {
   "name": "Header",
   "tag": "section",
@@ -82,4 +96,4 @@
     }
   ]
 }
-  {% endschema %}
+{% endschema %}
